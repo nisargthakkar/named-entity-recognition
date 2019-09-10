@@ -1,0 +1,83 @@
+To run the code, create a folder called "preprocess". Put preprocess-pytorch.py inside that folder. Also, put the three files inside the "preprocess" folder.
+
+Then run python preprocess-pytorch.py
+
+To run the code, python ner_pytorch.py -n <num_dataloader_workers> -c -d <data_dir>
+The -c is for CUDA.
+
+The folder structure required is: (Extracting the uploaded zip should work)
+
+src/README (Same contents as this)
+
+src/ner_pytorch.py
+
+src/ner_nltk.py
+
+src/eng.train
+
+src/eng.testa
+
+src/eng.testb
+
+src/word_list.txt (Not included in the submission)
+
+src/word_embeds.npy (Not included in the submission)
+
+src/GoogleNews-vectors-negative300.bin (Currently unused but can be set to be used by changing a flag. Not included in the submission)
+
+src/preprocess/preprocess-pytorch.py
+
+src/preprocess/preprocess-yado.py
+
+src/preprocess/eng.train
+
+src/preprocess/eng.testa
+
+src/preprocess/eng.testb
+
+src/preprocess/AIDA-YAGO2-dataset.tsv
+
+
+
+The output files will be:
+
+Result of evaluating the model on the training set: output_file_pytorch.train_95
+
+Result of evaluating the model on the validation set: output_file_pytorch.testa_95
+
+Result of evaluating the model on the testing set: output_file_pytorch.testb_95 
+
+Result of AIDA YAGO results: src/output_file_pytorch.aida_yago_95
+
+
+
+Results:
+
+Train set:
+
+processed 203621 tokens with 23429 phrases; found: 23536 phrases; correct: 20053.
+accuracy:  97.69%; precision:  85.20%; recall:  85.59%; FB1:  85.40
+              LOC: precision:  87.93%; recall:  93.00%; FB1:  90.39  7540
+             MISC: precision:  79.34%; recall:  75.14%; FB1:  77.18  3223
+              ORG: precision:  77.67%; recall:  80.39%; FB1:  79.01  6517
+              PER: precision:  92.77%; recall:  87.94%; FB1:  90.29  6256
+
+Validation Set:
+processed 51362 tokens with 5938 phrases; found: 6097 phrases; correct: 4338.
+accuracy:  94.69%; precision:  71.15%; recall:  73.05%; FB1:  72.09
+              LOC: precision:  75.20%; recall:  83.18%; FB1:  78.99  2032
+             MISC: precision:  57.08%; recall:  70.70%; FB1:  63.16  1137
+              ORG: precision:  63.68%; recall:  69.43%; FB1:  66.43  1462
+              PER: precision:  83.90%; recall:  66.78%; FB1:  74.37  1466
+
+Test Set:
+processed 46435 tokens with 5628 phrases; found: 5681 phrases; correct: 3601.
+accuracy:  92.33%; precision:  63.39%; recall:  63.98%; FB1:  63.68
+              LOC: precision:  69.78%; recall:  79.60%; FB1:  74.37  1896
+             MISC: precision:  43.40%; recall:  64.50%; FB1:  51.89  1030
+              ORG: precision:  60.97%; recall:  62.74%; FB1:  61.85  1704
+              PER: precision:  75.36%; recall:  48.98%; FB1:  59.37  1051
+
+
+
+I would like to thank Ulzee and Ananth for helping me clear a big issue I was facing in my code
